@@ -1,15 +1,43 @@
 // Sfruttiamo le timing functions per fare il conto alla rovescia per la correzione di domani!
 // Ogni secondo il nostro countdown dovrà scalare fino alle 9:30 di lunedì mattina!
 
-setInterval(endDay, 1000);
-// let showCountdown = endDay();
+// setInterval(endDay, 1000);
+// imposto una data fissa
 
-// creo una funzione che mi calcola il tempo rimanente a mezzanotte di oggi
+function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    
+    
+    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+    }
+console.log(msToTime(57692300));
+
+const tomorrow = new Date("February 10, 2024 9:30:00");
+console.log(tomorrow);
+
+console.log(Math.floor(9.5));
+// test
+
+const countdown = new Date();
+
+
+if(tomorrow.getDate() != countdown.getDate()) {
+    console.log(tomorrow.getDate());
+    console.log(countdown.getDate());
+
+
+    countdown.setHours(24 - countdown.getHours() + tomorrow.getHours());
+
+}
+
+console.log(countdown.getHours());
+
+// creo una funzione che mi calcola il tempo rimanente alle 9.30 di domani
 function endDay() {
     
-    let d = new Date();
-
-    const countdown = new Date();
 
 
     // provo a implementare prima un calcolatore che trova quanto manca alla mezzanotte di oggi
