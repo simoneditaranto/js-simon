@@ -4,23 +4,26 @@
 // setInterval(endDay, 1000);
 // imposto una data fissa
 
-// inizializzo 2 variabili
-// la prima che contiene la data a cui vogliamo arrivare (nel primo caso lunedì alle 9:30)
+// inizializzo la variabile che contiene la data a cui vogliamo arrivare (in questo caso lunedì alle 9:30)
 const nextDay = new Date("February 13, 2024 9:30:00");
-console.log("nextDay", nextDay);
-// la seconda che contiene la data attuale
-const actualDay = new Date();
-console.log("actualDay", actualDay);
 
 
-// attraverso la funzione getTime() che mi restituisce il tempo in millisecondi da una certa data al 1 gennaio 1970, calcolo la differenza tra le due date sopra
-// sarà il tempo in millisecondi che c'è tra oggi e la data successiva 
-// converto questo tempo utlizzando la funzione "msToTime" e trovo quanto manca
-const countdown = msToTime(nextDay.getTime() - actualDay.getTime());
+// utilizzando la funzione "setInterval" ogni secondo faccio queste operazioni per creare un countdown
+setInterval(function() {
 
-// scrivo in pagina il risultato
-document.getElementById("time-remaining").innerHTML = `Alla data: ${nextDay} <br> mancano ${countdown}`;
+    // ogni secondo verifico quale sia la data attuale
+    const actualDay = new Date();
+    
+    // attraverso la funzione getTime() che mi restituisce il tempo in millisecondi da una certa data al 1 gennaio 1970, calcolo la differenza tra le due date sopra
+    // sarà il tempo in millisecondi che c'è tra oggi e la data successiva 
+    // converto questo tempo utlizzando la funzione "msToTime" e trovo quanto manca
+    const countdown = msToTime(nextDay.getTime() - actualDay.getTime());
+    
+    // scrivo in pagina il risultato
+    document.getElementById("time-remaining").innerHTML = `Alla data: ${nextDay} <br> mancano ${countdown}`;
 
+
+}, 1000);
 
 
 // funzione che mi converte il tempo da millisecondi a "giorni : ore : minuti: secondi"
