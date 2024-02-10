@@ -4,57 +4,33 @@
 // setInterval(endDay, 1000);
 // imposto una data fissa
 
+// inizializzo 2 variabili
+// la prima che contiene la data a cui vogliamo arrivare (nel primo caso lunedì alle 9:30)
+const nextDay = new Date("February 13, 2024 9:30:00");
+console.log("nextDay", nextDay);
+// la seconda che contiene la data attuale
+const actualDay = new Date();
+console.log("actualDay", actualDay);
+
+
+// attraverso la funzione getTime() che mi restituisce il tempo in millisecondi da una certa data al 1 gennaio 1970, calcolo la differenza tra le due date sopra
+// sarà il tempo in millisecondi che c'è tra oggi e la data successiva 
+const countdown = nextDay.getTime() - actualDay.getTime();
+console.log(countdown);
+
+// converto questo tempo in millisecondi e trovo quanto manca
+console.log(msToTime(countdown)); 
+
+
+
+// funzione che mi converte il tempo da millisecondi a "giorni : ore : minuti: secondi"
 function msToTime(duration) {
-    var milliseconds = Math.floor((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
+    // var milliseconds = Math.floor((duration % 1000) / 100),
+    var seconds = Math.floor((duration / 1000) % 60),
     minutes = Math.floor((duration / (1000 * 60)) % 60),
     hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    day = Math.floor((duration / (1000 * 60 * 60 * 24)));
     
-    
-    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+    return day + ":" + hours + ":" + minutes + ":" + seconds;
     }
-console.log(msToTime(57692300));
-
-const tomorrow = new Date("February 10, 2024 9:30:00");
-console.log(tomorrow);
-
-console.log(Math.floor(9.5));
-// test
-
-const countdown = new Date();
-
-
-if(tomorrow.getDate() != countdown.getDate()) {
-    console.log(tomorrow.getDate());
-    console.log(countdown.getDate());
-
-
-    countdown.setHours(24 - countdown.getHours() + tomorrow.getHours());
-
-}
-
-console.log(countdown.getHours());
-
-// creo una funzione che mi calcola il tempo rimanente alle 9.30 di domani
-function endDay() {
-    
-
-
-    // provo a implementare prima un calcolatore che trova quanto manca alla mezzanotte di oggi
-    countdown.setHours(24 - d.getHours());
-    hours = countdown.getHours();
-
-
-    countdown.setMinutes(60 - d.getMinutes());
-    minutes = countdown.getMinutes();
-
-
-    countdown.setSeconds(60 - d.getSeconds());
-    seconds = countdown.getSeconds();
-
-
-    document.getElementById("time-remaining").innerHTML = "ore " + countdown.getHours() + " minuti " + countdown.getMinutes() + " secondi " + countdown.getSeconds();
-    // console.log(timeRemaining);
-
-
-}
+// console.log(msToTime(57692300));
