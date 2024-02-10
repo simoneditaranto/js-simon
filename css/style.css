@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#select-date{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 10px;
+}
+
+#calculate{
+    padding: 5px;
+
+    border-radius: 10px;
+
+    background-color: rgb(163, 163, 243);
+}
