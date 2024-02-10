@@ -12,10 +12,20 @@
     margin-bottom: 10px;
 }
 
-#calculate{
+#time-remaining{
+    margin-bottom: 10px;
+}
+
+#select-date > div{
+    margin-bottom: 10px;
+}
+
+button{
     padding: 5px;
 
     border-radius: 10px;
+}
 
+#calculate{
     background-color: rgb(163, 163, 243);
 }

@@ -1,6 +1,63 @@
 // Sfruttiamo le timing functions per fare il conto alla rovescia per la correzione di domani!
 // Ogni secondo il nostro countdown dovrà scalare fino alle 9:30 di lunedì mattina!
 
+// inizializzo gli elementi "select" da mostrare in pagina
+// select per il mese
+// array che contiene le stringhe da mostrare per la selezione
+const monthsArray = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+const selectMonthElement = document.createElement("select");
+selectMonthElement.id = "month";
+document.querySelector("#month-container").append(selectMonthElement);
+for(let i = 0; i < 12; i++) {
+    const newMonthElement = document.createElement("option");
+    newMonthElement.value = i;
+    newMonthElement.innerText = monthsArray[i];
+    selectMonthElement.append(newMonthElement);
+}
+
+// select per il giorno [1-31]
+const selectDayElement = document.createElement("select");
+selectDayElement.id ="day";
+document.querySelector("#day-container").append(selectDayElement);
+for(let i = 1; i <= 31; i++) {
+    const newDayElement = document.createElement("option");
+    newDayElement.value = i;
+    newDayElement.innerText = i;
+    selectDayElement.append(newDayElement);
+}
+
+// select per l'ora [1-24]
+const selectHourElement = document.createElement("select");
+selectHourElement.id = "hour";
+document.querySelector("#hour-container").append(selectHourElement);
+for(let i = 1; i <= 24; i++) {
+    const newHourElement = document.createElement("option");
+    newHourElement.value = i;
+    newHourElement.innerText = i;
+    selectHourElement.append(newHourElement);
+}
+
+// select per i minuti [0-60]
+const selectMinuteElement = document.createElement("select");
+selectMinuteElement.id = "minute";
+document.querySelector("#minutes-container").append(selectMinuteElement);
+for(let i =0 ; i <= 60; i++) {
+    const newMinuteElement = document.createElement("option");
+    newMinuteElement.value = i;
+    newMinuteElement.innerText = i;
+    selectMinuteElement.append(newMinuteElement);
+}
+
+// select per i secondi [0-60]
+const selectSecondElement = document.createElement("select");
+selectSecondElement.id = "second";
+document.querySelector("#seconds-container").append(selectSecondElement);
+for(let i =0 ; i <= 60; i++) {
+    const newSecondElement = document.createElement("option");
+    newSecondElement.value = i;
+    newSecondElement.innerText = i;
+    selectSecondElement.append(newSecondElement);
+}
 
 // memorizzo il bottone "calcola"
 const buttonElement = document.querySelector("#calculate");
